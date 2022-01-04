@@ -23,3 +23,6 @@ randomness = 1.0
 visibility_aabb = AABB( -100, -10, -100, 200, 200, 200 )
 process_material = SubResource( 1 )
 draw_pass_1 = SubResource( 3 )
+__meta__ = {
+"apply_volumetrics": false
+}
