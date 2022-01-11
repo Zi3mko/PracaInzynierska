@@ -5,7 +5,7 @@
 [node name="Spatial" type="Spatial"]
 
 [node name="FireEffect" parent="." instance=ExtResource( 1 )]
-transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 2.09328, 0 )
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 1.94753, 0 )
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
 
@@ -13,3 +13,6 @@ transform = Transform( 0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 2.09328, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96338, 0 )
 radius = 0.1
 height = 2.0
+__meta__ = {
+"apply_volumetrics": false
+}

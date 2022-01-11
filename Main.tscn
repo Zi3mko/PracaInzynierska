@@ -15,6 +15,7 @@ shadow_enabled = true
 
 [node name="Fog" parent="." instance=ExtResource( 5 )]
 transform = Transform( 30, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.22535, 0 )
+visible = false
 
 [node name="KinematicBody" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.215195, 2.12495, -0.287899 )
@@ -24,14 +25,21 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.67462, 0.961643, 1.23792 )
 
 [node name="CSGCombiner" type="CSGCombiner" parent="."]
 use_collision = true
+__meta__ = {
+"apply_volumetrics": false
+}
 
 [node name="CSGBox" type="CSGBox" parent="CSGCombiner"]
 width = 60.0
-depth = 60.0
+depth = 62.0
 material = ExtResource( 2 )
+__meta__ = {
+"apply_volumetrics": false
+}
 
 [node name="Rain" parent="." instance=ExtResource( 4 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.15807, 1, -7.74853 )
+visible = false
 
 [node name="FireEffect" parent="." instance=ExtResource( 6 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95392, 1.73972, 0 )
