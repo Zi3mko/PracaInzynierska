@@ -26,6 +26,7 @@ size = Vector2( 5, 5 )
 
 [node name="Particles" type="Particles" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 10 )
+layers = 4
 amount = 500
 lifetime = 20.0
 preprocess = 10.0
