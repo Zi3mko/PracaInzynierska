@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Textures/SmokeGradient.tres" type="Gradient" id=1]
+[ext_resource path="res://Textures/PNG/Smoke30Frames_0.png" type="Texture" id=2]
+
+[sub_resource type="GradientTexture" id=7]
+gradient = ExtResource( 1 )
+
+[sub_resource type="Curve" id=12]
+_data = [ Vector2( 0.0061162, 0.519318 ), 0.0, 0.0, 0, 0, Vector2( 0.504587, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 12 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+lifetime_randomness = 0.4
+emission_shape = 1
+emission_sphere_radius = 4.0
+direction = Vector3( 0, 0, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+angle = 360.0
+angle_random = 1.0
+scale = 10.0
+scale_random = 0.5
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[sub_resource type="SpatialMaterial" id=11]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 6
+particles_anim_v_frames = 5
+particles_anim_loop = true
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="QuadMesh" id=14]
+material = SubResource( 11 )
+
+[node name="FogTest" type="Spatial"]
+
+[node name="Smoke" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0807474, 0 )
+amount = 250
+lifetime = 1.5
+randomness = 1.0
+visibility_aabb = AABB( -6, -5, -4, 12, 10, 8 )
+local_coords = false
+draw_order = 2
+process_material = SubResource( 13 )
+draw_pass_1 = SubResource( 14 )
+__meta__ = {
+"apply_volumetrics": false
+}
