@@ -15,7 +15,7 @@ curve = SubResource( 12 )
 [sub_resource type="ParticlesMaterial" id=13]
 lifetime_randomness = 0.4
 emission_shape = 1
-emission_sphere_radius = 4.0
+emission_sphere_radius = 3.0
 direction = Vector3( 0, 0, 0 )
 spread = 0.0
 gravity = Vector3( 0, 0, 0 )
@@ -45,7 +45,7 @@ material = SubResource( 11 )
 [node name="FogTest" type="Spatial"]
 
 [node name="Smoke" type="Particles" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0807474, 0 )
+transform = Transform( 2, 0, 0, 0, 1.1, 0, 0, 0, 2, 0, 0.0807474, 0 )
 amount = 250
 lifetime = 1.5
 randomness = 1.0
