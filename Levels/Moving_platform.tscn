@@ -1,0 +1,73 @@
+[gd_scene load_steps=6 format=2]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="BoxShape" id=2]
+
+[sub_resource type="Curve3D" id=3]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -0.372337, -0.31443, 104.947, 0, 0, 0, 0, 0, 0, -0.000214338, 0.0802574, -0.312667 ),
+"tilts": PoolRealArray( 0, 0 )
+}
+
+[sub_resource type="Animation" id=4]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path/PathFollow:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.0 ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "move_platform"
+length = 7.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Path/PathFollow:unit_offset")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, 1.0 ]
+}
+
+[node name="MovingPlatform" type="Spatial"]
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.329086, -0.268557, 92.7125 )
+
+[node name="MeshInstance" type="MeshInstance" parent="KinematicBody"]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+mesh = SubResource( 1 )
+material/0 = null
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 10, 0, 0, 0 )
+shape = SubResource( 2 )
+
+[node name="Path" type="Path" parent="."]
+curve = SubResource( 3 )
+
+[node name="PathFollow" type="PathFollow" parent="Path"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.329086, -0.268557, 92.7125 )
+offset = 12.2363
+
+[node name="RemoteTransform" type="RemoteTransform" parent="Path/PathFollow"]
+remote_path = NodePath("../../../KinematicBody")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "move_platform"
+playback_process_mode = 0
+anims/RESET = SubResource( 4 )
+anims/move_platform = SubResource( 5 )

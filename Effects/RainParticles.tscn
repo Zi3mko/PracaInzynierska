@@ -2,10 +2,11 @@
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
-emission_box_extents = Vector3( 250, 100, 250 )
+emission_box_extents = Vector3( 5, 5, 5 )
 direction = Vector3( 0, -5, 0 )
 spread = 1.0
 initial_velocity = 1000.0
+initial_velocity_random = 1.0
 
 [sub_resource type="SpatialMaterial" id=2]
 albedo_color = Color( 0.419608, 0.686275, 1, 0.243137 )
