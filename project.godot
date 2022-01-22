@@ -66,6 +66,10 @@ config/name="Engineering_Thesis"
 run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+VolumetricServer="*res://addons/silicon.vfx.volumetrics/volumetric_server.gd"
+
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/waterways/plugin.cfg" )
