@@ -40,3 +40,8 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 		state = STATE.CLOSED
 	else:
 		state = STATE.OPEN
+
+
+func _on_Button_on_state_changed():
+	state = STATE.OPEN
+	open()

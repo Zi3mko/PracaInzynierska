@@ -44,5 +44,7 @@ func turn_on():
 func _on_AnimationPlayer_animation_finished(_anim_name):
 	if state == STATE.OPEN:
 		emit_signal("on_state_changed", true)
+		print("TRUE")
 	else:
 		emit_signal("on_state_changed", false)
+		print("FALSE")
