@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Characters/Player/SpringArm.gd" type="Script" id=2]
 [ext_resource path="res://Characters/Player/Plyr1.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Characters/Animation/Idle.tres" type="Animation" id=4]
 [ext_resource path="res://Characters/Animation/Running.tres" type="Animation" id=5]
+[ext_resource path="res://Characters/Player/InteractionRayCast.gd" type="Script" id=6]
 
 [sub_resource type="AnimationNodeAnimation" id=12]
 animation = "Running"
@@ -65,7 +66,7 @@ nodes/iwr_blend/position = Vector2( 360, 200 )
 nodes/output/position = Vector2( 1140, 80 )
 nodes/running/node = SubResource( 8 )
 nodes/running/position = Vector2( 240, 40 )
-node_connections = [ "output", 0, "iwr_blend", "TimeScale 2", 0, "running", "Transition", 0, "TimeScale 2", "iwr_blend", 0, "Aniamtion1", "iwr_blend", 1, "Aniamtion2" ]
+node_connections = [ "output", 0, "iwr_blend", "Transition", 0, "TimeScale 2", "iwr_blend", 0, "Aniamtion1", "iwr_blend", 1, "Aniamtion2", "TimeScale 2", 0, "running" ]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -105,3 +106,10 @@ script = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="SpringArm"]
 current = true
+
+[node name="InteractionRayCast" type="RayCast" parent="SpringArm/Camera"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11 )
+enabled = true
+cast_to = Vector3( 0, 0, 10 )
+collision_mask = 3
+script = ExtResource( 6 )
