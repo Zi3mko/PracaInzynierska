@@ -19,7 +19,7 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector3( 0, 10, 0 ), Vector3( 0, 20, 0 ) ]
+"values": [ Vector3( -410, 10, 0 ), Vector3( -410, 40, 0 ) ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -39,7 +39,7 @@ tracks/0/keys = {
 }
 
 [node name="SlidingDoor" type="StaticBody"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -410, 40, 0 )
 script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
