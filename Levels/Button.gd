@@ -1,50 +1,52 @@
 extends Interactable
 
-enum STATE { 
-	OPEN,
-	CLOSED
+enum STATE{
+	ON,
+	OFF
 }
 
-onready var state = STATE.CLOSED
+onready var state = STATE.OFF
 
 onready var anim_player = $AnimationPlayer
 
-signal on_state_changed
-
+signal open_door
 
 func get_interaction_text():
-	if state == STATE.OPEN:
-		return "to turn off"
-	return "to turn on"
+	if state == STATE.OFF:
+		return "Wcisnij przycisk by otworzyc drzwi"
 	
 func interact():
-	if anim_player.is_playing():
-		return
-	if state == STATE.OPEN:
-		turn_off()
-	else:
-		turn_on()
-		
-func turn_off():
-	if anim_player.is_playing():
-		return
-	if state == STATE.CLOSED:
-		return
-	state = STATE.CLOSED
-	anim_player.play_backwards("press")
 	
-func turn_on():
 	if anim_player.is_playing():
 		return
-	if state == STATE.OPEN:
+	
+	if state == STATE.OFF:
+		turn_on()
+	else:
+		turn_off()
+		
+func turn_on():
+	
+	if anim_player.is_playing():
 		return
-	state = STATE.OPEN
+	
+	if state == STATE.ON:
+		return
+
+	state = STATE.ON 
 	anim_player.play("press")
 
-func _on_AnimationPlayer_animation_finished(_anim_name):
-	if state == STATE.OPEN:
-		emit_signal("on_state_changed", true)
-		print("TRUE")
+func turn_off():
+	if state == STATE.OFF:
+		return
+	state = STATE.OFF
+	anim_player.play_backwards("press")
+
+	
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if state == STATE.ON:
+		emit_signal("open_door",true)
 	else:
-		emit_signal("on_state_changed", false)
-		print("FALSE")
+		emit_signal("open_door",false)

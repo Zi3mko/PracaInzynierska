@@ -1,47 +1,32 @@
 extends Interactable
 
-enum STATE {
-	OPEN,
-	CLOSED
+enum STATE{
+	ON,
+	OFF
 }
+onready var door = $SlidingDoor
 
-var state = STATE.CLOSED
-onready var anim_player = $AnimationPlayer
+var position = Vector3(0,0,0)
+var position1 = Vector3(0,10,0)
 
-func get_interaction_text():
-	if state == STATE.OPEN:
-		return "to close the door"
-	return " "
+signal open_door
 
-func interact():
-	if anim_player.is_playing():
+var state
+
+func _ready():
+	state = STATE.OFF
+
+func door_open():
+	if state == STATE.ON:
 		return
-	if state == STATE.OPEN:
-		close()
-
-func open():
-	if anim_player.is_playing():
-		return
-	if state == STATE.OPEN:
-		return
-
-	anim_player.play("door_open")
+	state = STATE.ON
+	#door.translate(position1)
+	emit_signal("open_door",true)
+	print("signal emmited")
 	
-func close():
-	if anim_player.is_playing():
+func door_close():
+	if state == STATE.OFF:
 		return
-	if state == STATE.CLOSED:
-		return
-
-	anim_player.play_backwards("door_open")
-
-func _on_AnimationPlayer_animation_finished(anim_name):
-	if state == STATE.OPEN:
-		state = STATE.CLOSED
-	else:
-		state = STATE.OPEN
-
-
-func _on_Button_on_state_changed():
-	state = STATE.OPEN
-	open()
+	#Transform(position)
+	state = STATE.OFF
+	emit_signal("open_door",false)
