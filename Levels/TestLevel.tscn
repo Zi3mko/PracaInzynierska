@@ -234,6 +234,9 @@ shape = SubResource( 15 )
 [node name="CollisionShape" type="CollisionShape" parent="Cube003/StaticBody" index="0"]
 shape = SubResource( 16 )
 
+[node name="Cube004" parent="." index="16"]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 14, -137.362, -0.94791, -0.0441589 )
+
 [node name="StaticBody" type="StaticBody" parent="Cube004" index="0"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Cube004/StaticBody" index="0"]
@@ -253,6 +256,9 @@ shape = SubResource( 19 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Cube006/StaticBody" index="0"]
 shape = SubResource( 20 )
+
+[node name="Cube007" parent="." index="20"]
+visible = false
 
 [node name="StaticBody" type="StaticBody" parent="Cube007" index="0"]
 

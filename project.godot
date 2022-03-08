@@ -55,21 +55,17 @@ _global_script_classes=[ {
 "path": "res://addons/silicon.vfx.volumetrics/material/volumetric_material.gd"
 } ]
 _global_script_class_icons={
-"FrustumAABBIntersection": "",
 "HTerrainDataLoader": "",
 "HTerrainDataSaver": "",
-"Halton": "",
-"Interactable": "",
-"Matrix4": "",
-"SceneBounds": "",
 "TransparentVolumeOverlay": "",
 "VolumetricMaterial": "res://addons/silicon.vfx.volumetrics/material/volumetric_material.svg"
+"Interactable": ""
 }
 
 [application]
 
 config/name="Engineering_Thesis"
-run/main_scene="res://Main.tscn"
+run/main_scene="res://Menu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
