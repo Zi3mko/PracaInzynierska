@@ -57,8 +57,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "HTerrainDataLoader": "",
 "HTerrainDataSaver": "",
-"TransparentVolumeOverlay": "",
-"VolumetricMaterial": "res://addons/silicon.vfx.volumetrics/material/volumetric_material.svg"
 "Interactable": ""
 }
 
