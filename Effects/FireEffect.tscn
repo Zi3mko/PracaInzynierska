@@ -156,10 +156,11 @@ process_material = SubResource( 4 )
 draw_pass_1 = SubResource( 6 )
 
 [node name="Smoke" type="Particles" parent="Flames"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.89752, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.91624, 0 )
 amount = 50
 lifetime = 1.5
 randomness = 1.0
+visibility_aabb = AABB( -4, -4.18457, -4, 8, 8, 8 )
 local_coords = false
 draw_order = 2
 process_material = SubResource( 10 )
