@@ -22,7 +22,7 @@ func door_open():
 	state = STATE.ON
 	#door.translate(position1)
 	emit_signal("open_door",true)
-	print("signal emmited")
+	#print("signal emmited")
 	
 func door_close():
 	if state == STATE.OFF:
