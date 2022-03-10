@@ -18,6 +18,9 @@ func _on_Button_open_door(state):
 		door.translate(position)
 	pass
 
+func _process(delta):
+	if Input.is_action_just_pressed("Quit"):
+		get_tree().quit()
 
 func _on_Area_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	player.translation = pos.translation
