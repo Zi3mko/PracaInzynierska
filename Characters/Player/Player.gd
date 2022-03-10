@@ -9,7 +9,7 @@ var _velocity := Vector3.ZERO
 var _snap_vector := Vector3.DOWN
 
 onready var _spring_arm: SpringArm = $SpringArm
-onready var _model: Spatial = $PlayerSkin
+onready var _model: Spatial = $Mesh
 
 func _physics_process(delta: float) -> void:
 	var move_direction := Vector3.ZERO
@@ -25,28 +25,30 @@ func _physics_process(delta: float) -> void:
 	var is_jumping := is_on_floor() and Input.is_action_just_pressed("jump")
 	_velocity = move_and_slide_with_snap(_velocity, _snap_vector, Vector3.UP, true)
 	
+
 	if is_on_floor():
 		jumpNum = 0
-	
+		
 	if is_jumping:
 		if jumpNum == 0:
 			_velocity.y = jump_strength
 			_snap_vector = Vector3.UP
 			jumpNum = 1
-	
+		
 	if Input.is_action_just_pressed("jump") and not is_on_floor():
 		if jumpNum == 1:
 			_velocity.y = jump_strength
 			_snap_vector = Vector3.UP
 			jumpNum = 2
-			
+		
 	elif just_landed:
 		_snap_vector = Vector3.DOWN
-	
+		
 	if _velocity.length() > 0.2:
 		var look_direction = Vector2(_velocity.z, _velocity.x)
 		_model.rotation.y = look_direction.angle()
-	
+
+
 func _process(_delta: float) -> void:
 	_spring_arm.translation = translation
 
