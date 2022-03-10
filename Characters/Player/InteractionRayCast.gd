@@ -28,6 +28,6 @@ func set_interaction_text(text):
 		interaction_label.visible = false
 	else:
 		var interact_key = OS.get_scancode_string(InputMap.get_action_list("Interact")[0].scancode)
-		interaction_label.text = "Press %s to %s" % [interact_key, text]
+		interaction_label.text = "Nacisnij %s aby %s" % [interact_key, text]
 		interaction_label.visible = true
 

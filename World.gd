@@ -21,3 +21,6 @@ func _on_Button_open_door(state):
 
 func _on_Area_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
 	player.translation = pos.translation
+
+func _on_EndOfGame_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	get_tree().change_scene("res://EndMenu.tscn")

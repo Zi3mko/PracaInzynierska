@@ -536,3 +536,14 @@ physics_material_override = SubResource( 55 )
 
 [node name="CollisionShape" type="CollisionShape" parent="Platformer7/StaticBody" index="0"]
 shape = SubResource( 56 )
+
+[node name="Platformer9" type="MeshInstance" parent="." index="59"]
+transform = Transform( -4.37114e-07, -0.2, -4.37114e-07, 0, -8.74228e-09, 10, -10, 8.74228e-09, 1.91069e-14, -430, 10.1, 0.100006 )
+mesh = SubResource( 54 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Platformer9" index="0"]
+physics_material_override = SubResource( 55 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Platformer9/StaticBody" index="0"]
+shape = SubResource( 56 )

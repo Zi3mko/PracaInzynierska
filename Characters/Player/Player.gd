@@ -8,11 +8,12 @@ var jumpNum = 0
 var _velocity := Vector3.ZERO
 var _snap_vector := Vector3.DOWN
 
-onready var pos_val = get_node("../../Main")
+var anim_player
 onready var _spring_arm: SpringArm = $SpringArm
 onready var _model: Spatial = $Mesh
 
 func _physics_process(delta: float) -> void:
+	var is_moving = false
 	var move_direction := Vector3.ZERO
 	move_direction.x = Input.get_action_strength("right") - Input.get_action_strength("left")
 	move_direction.z = Input.get_action_strength("back") - Input.get_action_strength("forward")
@@ -26,17 +27,22 @@ func _physics_process(delta: float) -> void:
 	var is_jumping := is_on_floor() and Input.is_action_just_pressed("jump")
 	_velocity = move_and_slide_with_snap(_velocity, _snap_vector, Vector3.UP, true)
 	
-
+	if _velocity == Vector3.ZERO:
+		anim_player.play("Idle")
+	elif _velocity != Vector3.ZERO and is_on_floor() == true:
+		anim_player.play("Running")
 	if is_on_floor():
 		jumpNum = 0
-		
 	if is_jumping:
 		if jumpNum == 0:
 			_velocity.y = jump_strength
 			_snap_vector = Vector3.UP
 			jumpNum = 1
-		
+	if Input.is_action_just_pressed("jump"):
+		anim_player.play("Jumping")
 	if Input.is_action_just_pressed("jump") and not is_on_floor():
+		anim_player.stop()
+		anim_player.play("Jumping")
 		if jumpNum == 1:
 			_velocity.y = jump_strength
 			_snap_vector = Vector3.UP
@@ -55,6 +61,7 @@ func _process(_delta: float) -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	anim_player = get_node("AnimationPlayer")
 	pass # Replace with function body.
 
 

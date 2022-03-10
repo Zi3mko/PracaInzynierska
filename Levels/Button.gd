@@ -13,7 +13,7 @@ signal open_door
 
 func get_interaction_text():
 	if state == STATE.OFF:
-		return "Wcisnij przycisk by otworzyc drzwi"
+		return "otworzyc drzwi"
 	
 func interact():
 	
