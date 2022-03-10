@@ -66,7 +66,7 @@ nodes/iwr_blend/position = Vector2( 360, 200 )
 nodes/output/position = Vector2( 1140, 80 )
 nodes/running/node = SubResource( 8 )
 nodes/running/position = Vector2( 240, 40 )
-node_connections = [ "output", 0, "iwr_blend", "Transition", 0, "TimeScale 2", "TimeScale 2", 0, "running", "iwr_blend", 0, "Aniamtion1", "iwr_blend", 1, "Aniamtion2" ]
+node_connections = [ "output", 0, "iwr_blend", "TimeScale 2", 0, "running", "Transition", 0, "TimeScale 2", "iwr_blend", 0, "Aniamtion1", "iwr_blend", 1, "Aniamtion2" ]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -106,6 +106,7 @@ script = ExtResource( 2 )
 
 [node name="Camera" type="Camera" parent="SpringArm"]
 current = true
+far = 500.0
 
 [node name="InteractionRayCast" type="RayCast" parent="SpringArm/Camera"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -11 )

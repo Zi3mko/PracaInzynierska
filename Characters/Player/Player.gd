@@ -8,6 +8,7 @@ var jumpNum = 0
 var _velocity := Vector3.ZERO
 var _snap_vector := Vector3.DOWN
 
+onready var pos_val = get_node("../../Main")
 onready var _spring_arm: SpringArm = $SpringArm
 onready var _model: Spatial = $Mesh
 
@@ -56,3 +57,8 @@ func _process(_delta: float) -> void:
 func _ready():
 	pass # Replace with function body.
 
+
+
+func _on_Area_body_shape_entered(body_rid, body, body_shape_index, local_shape_index):
+	print("Enter")
+	translation = Vector3(-102,2,0)

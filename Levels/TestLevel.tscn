@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://Levels/Level1.glb" type="PackedScene" id=1]
 
@@ -151,6 +151,18 @@ data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, 
 
 [sub_resource type="ConcavePolygonShape" id=50]
 data = PoolVector3Array( -1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1 )
+
+[sub_resource type="CubeMesh" id=51]
+
+[sub_resource type="PhysicsMaterial" id=52]
+
+[sub_resource type="BoxShape" id=53]
+
+[sub_resource type="CubeMesh" id=54]
+
+[sub_resource type="PhysicsMaterial" id=55]
+
+[sub_resource type="BoxShape" id=56]
 
 [node name="Level1" instance=ExtResource( 1 )]
 
@@ -350,20 +362,32 @@ shape = SubResource( 37 )
 [node name="CollisionShape" type="CollisionShape" parent="Cube021/StaticBody" index="0"]
 shape = SubResource( 38 )
 
+[node name="Cube030" parent="." index="38"]
+visible = false
+
 [node name="StaticBody" type="StaticBody" parent="Cube030" index="0"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Cube030/StaticBody" index="0"]
 shape = SubResource( 39 )
+
+[node name="Cube029" parent="." index="39"]
+visible = false
 
 [node name="StaticBody" type="StaticBody" parent="Cube029" index="0"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Cube029/StaticBody" index="0"]
 shape = SubResource( 40 )
 
+[node name="Cube028" parent="." index="40"]
+visible = false
+
 [node name="StaticBody" type="StaticBody" parent="Cube028" index="0"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Cube028/StaticBody" index="0"]
 shape = SubResource( 41 )
+
+[node name="Cube027" parent="." index="41"]
+visible = false
 
 [node name="StaticBody" type="StaticBody" parent="Cube027" index="0"]
 
@@ -405,7 +429,110 @@ shape = SubResource( 48 )
 [node name="CollisionShape" type="CollisionShape" parent="Cube031/StaticBody" index="0"]
 shape = SubResource( 49 )
 
+[node name="Cube034" parent="." index="49"]
+visible = false
+
 [node name="StaticBody" type="StaticBody" parent="Cube034" index="0"]
 
 [node name="CollisionShape" type="CollisionShape" parent="Cube034/StaticBody" index="0"]
 shape = SubResource( 50 )
+
+[node name="MeshInstance" type="MeshInstance" parent="." index="50"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -100, 22, 58 )
+visible = false
+mesh = SubResource( 51 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="MeshInstance" index="0"]
+physics_material_override = SubResource( 52 )
+
+[node name="CollisionShape" type="CollisionShape" parent="MeshInstance/StaticBody" index="0"]
+shape = SubResource( 53 )
+
+[node name="Platformer" type="MeshInstance" parent="." index="51"]
+transform = Transform( 4, 0, 0, 0, 0.2, 0, 0, 0, 4, -279, 4, 0 )
+mesh = SubResource( 54 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Platformer" index="0"]
+physics_material_override = SubResource( 55 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Platformer/StaticBody" index="0"]
+shape = SubResource( 56 )
+
+[node name="Platformer2" type="MeshInstance" parent="." index="52"]
+transform = Transform( 4, 0, 0, 0, 0.2, 0, 0, 0, 4, -295, 7, 0 )
+mesh = SubResource( 54 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Platformer2" index="0"]
+physics_material_override = SubResource( 55 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Platformer2/StaticBody" index="0"]
+shape = SubResource( 56 )
+
+[node name="Platformer3" type="MeshInstance" parent="." index="53"]
+transform = Transform( 4, 0, 0, 0, 0.2, 0, 0, 0, 4, -311, 10, 0 )
+mesh = SubResource( 54 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Platformer3" index="0"]
+physics_material_override = SubResource( 55 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Platformer3/StaticBody" index="0"]
+shape = SubResource( 56 )
+
+[node name="Platformer4" type="MeshInstance" parent="." index="54"]
+transform = Transform( 4, 0, 0, 0, 0.2, 0, 0, 0, 4, -329, 14, 0 )
+mesh = SubResource( 54 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Platformer4" index="0"]
+physics_material_override = SubResource( 55 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Platformer4/StaticBody" index="0"]
+shape = SubResource( 56 )
+
+[node name="Platformer5" type="MeshInstance" parent="." index="55"]
+transform = Transform( 10, 0, 0, 0, 0.2, 0, 0, 0, 10, -420, 0.1, 0 )
+mesh = SubResource( 54 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Platformer5" index="0"]
+physics_material_override = SubResource( 55 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Platformer5/StaticBody" index="0"]
+shape = SubResource( 56 )
+
+[node name="Platformer8" type="MeshInstance" parent="." index="56"]
+transform = Transform( 10, 0, 0, 0, 0.2, 0, 0, 0, 10, -420, 20.1, 0 )
+mesh = SubResource( 54 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Platformer8" index="0"]
+physics_material_override = SubResource( 55 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Platformer8/StaticBody" index="0"]
+shape = SubResource( 56 )
+
+[node name="Platformer6" type="MeshInstance" parent="." index="57"]
+transform = Transform( 10, 0, 0, 0, -8.74228e-09, 10, 0, -0.2, -4.37114e-07, -420, 10.1, 10 )
+mesh = SubResource( 54 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Platformer6" index="0"]
+physics_material_override = SubResource( 55 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Platformer6/StaticBody" index="0"]
+shape = SubResource( 56 )
+
+[node name="Platformer7" type="MeshInstance" parent="." index="58"]
+transform = Transform( 10, 0, 0, 0, -8.74228e-09, 10, 0, -0.2, -4.37114e-07, -420, 10.1, -9.9 )
+mesh = SubResource( 54 )
+material/0 = null
+
+[node name="StaticBody" type="StaticBody" parent="Platformer7" index="0"]
+physics_material_override = SubResource( 55 )
+
+[node name="CollisionShape" type="CollisionShape" parent="Platformer7/StaticBody" index="0"]
+shape = SubResource( 56 )
